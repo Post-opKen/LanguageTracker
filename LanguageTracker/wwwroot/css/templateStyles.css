@@ -38,9 +38,17 @@
     }
 
 .navItems {
-    color: black;
-    text-decoration: underline;
+    margin: 1em 0;
+    color: white;
+    background-color: #006225;
+    text-decoration: none;
 }
+
+    .navItems:hover {
+        background-color: #54b551;
+        color: white;
+        text-decoration: none;
+    }
 
 table {
     padding: 3em 15em;

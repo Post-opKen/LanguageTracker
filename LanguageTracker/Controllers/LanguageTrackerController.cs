@@ -8,5 +8,10 @@ namespace LanguageTracker.Controllers
         {
             return View();
         }
+
+        public string Students()
+        {
+            return "I am the students view";
+        }
     }
 }
