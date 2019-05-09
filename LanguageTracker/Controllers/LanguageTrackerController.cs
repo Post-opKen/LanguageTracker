@@ -9,9 +9,9 @@ namespace LanguageTracker.Controllers
             return View();
         }
 
-        public string Students()
+        public IActionResult Students()
         {
-            return "I am the students view";
+			return View();
         }
     }
 }
