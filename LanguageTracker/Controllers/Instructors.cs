@@ -11,8 +11,13 @@ namespace LanguageTracker.Controllers
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name = "Instructor ID")]
         public int id { get; set; }
+
+        [Display(Name = "Last Name")]
         public string last_name { get; set; }
+
+        [Display(Name = "First Name")]
         public string first_name { get; set; }
     }
 }
