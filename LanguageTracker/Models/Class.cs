@@ -21,7 +21,6 @@ namespace LanguageTracker.Models
         public string ClassID { get; set; }
 
         [Display(Name = "Item")]
-        [Column(TypeName = "nvarchar(4)")]
         public int ItemNumber { get; set; }
 
         [Display(Name = "Course")]
