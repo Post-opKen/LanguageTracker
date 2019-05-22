@@ -24,5 +24,7 @@ namespace LanguageTracker.Models
         public DbSet<LanguageTracker.Controllers.LabHours> LabHours { get; set; }
 
         public DbSet<LanguageTracker.Models.Class> Class { get; set; }
+
+        public DbSet<LanguageTracker.Models.Student> Student { get; set; }
     }
 }
