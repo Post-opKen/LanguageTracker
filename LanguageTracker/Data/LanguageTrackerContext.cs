@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using LanguageTracker.Controllers;
+using LanguageTracker.Models;
 
 namespace LanguageTracker.Models
 {
@@ -21,5 +22,7 @@ namespace LanguageTracker.Models
         public DbSet<LanguageTracker.Controllers.LabActivities> LabActivities { get; set; }
 
         public DbSet<LanguageTracker.Controllers.LabHours> LabHours { get; set; }
+
+        public DbSet<LanguageTracker.Models.Class> Class { get; set; }
     }
 }
