@@ -13,7 +13,7 @@ namespace LanguageTracker.Models
         public String SID { get; set; }
 
         [Display(Name = "Student Name")]
-        [Column(TypeName = "varchar(22)")]
-        public string FullName { get; set; }
+        [Column(TypeName = "nvarchar(22)")]
+        public String FullName { get; set; }
     }
 }

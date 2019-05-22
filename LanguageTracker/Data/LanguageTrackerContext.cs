@@ -26,5 +26,7 @@ namespace LanguageTracker.Models
         public DbSet<LanguageTracker.Models.Class> Class { get; set; }
 
         public DbSet<LanguageTracker.Models.Student> Student { get; set; }
+
+        public DbSet<LanguageTracker.Models.Enrollment> Enrollment { get; set; }
     }
 }
