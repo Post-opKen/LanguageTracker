@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageTracker", "LanguageTracker\LanguageTracker.csproj", "{E5939C6A-8050-41AA-A9DE-12EBBDB78667}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanguageTracker", "LanguageTracker\LanguageTracker.csproj", "{E5939C6A-8050-41AA-A9DE-12EBBDB78667}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageTrackerTests", "LanguageTrackerTests\LanguageTrackerTests.csproj", "{C0673C1F-0BBC-43AF-9565-84CDCF1631CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{E5939C6A-8050-41AA-A9DE-12EBBDB78667}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5939C6A-8050-41AA-A9DE-12EBBDB78667}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5939C6A-8050-41AA-A9DE-12EBBDB78667}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0673C1F-0BBC-43AF-9565-84CDCF1631CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0673C1F-0BBC-43AF-9565-84CDCF1631CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0673C1F-0BBC-43AF-9565-84CDCF1631CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0673C1F-0BBC-43AF-9565-84CDCF1631CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
