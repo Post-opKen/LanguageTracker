@@ -17,7 +17,6 @@ namespace LanguageTracker.Models
         public String SID { get; set; }
         
 
-        [ForeignKey("ClassID")]
         [Display(Name = "Class ID")]
         [Column(TypeName = "varchar(4)")]
         public String ClassID { get; set; }

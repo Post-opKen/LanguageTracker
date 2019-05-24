@@ -36,17 +36,17 @@
         </header>
 
 		<!--tabs to different tables-->
-        <div class="container d-flex" id="navBar">
-            <div class="mx-auto">
-                <a class="navItems btn btn-link" asp-controller="LanguageTracker" asp-action="Index">Lab Hours Table</a>
-            </div>
-            <div class="mx-auto">
-                <a class="navItems btn btn-link" asp-controller="LanguageTracker" asp-action="Students">Individual Students Lab Activities</a>
-            </div>
-            <div class="mx-auto">
-                <a class="navItems btn btn-link" asp-controller="LanguageTracker" asp-action="Upload">Upload New Data</a>
-            </div>
-        </div>
+        <ul class="container d-flex nav nav-tabs" id="navBar">
+            <li class="navItems rounded-lg">
+                <a class="nav-link" asp-controller="LanguageTracker" asp-action="Index">Lab Hours Table</a>
+            </li>
+            <li class="navItems rounded-lg">
+                <a class="nav-link" asp-controller="LanguageTracker" asp-action="Students">Individual Students Lab Activities</a>
+            </li>
+            <li class="navItems rounded-lg">
+                <a class="nav-link" asp-controller="LanguageTracker" asp-action="Upload">Upload New Data</a>
+            </li>
+        </ul>
 
         <div class="container">
             <partial name="_CookieConsentPartial" />
