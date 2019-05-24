@@ -18,5 +18,11 @@ namespace LanguageTracker.Controllers
         {
 			return View();
         }
+
+        //excel upload route
+        public IActionResult Upload()
+        {
+            return View();
+        }
     }
 }

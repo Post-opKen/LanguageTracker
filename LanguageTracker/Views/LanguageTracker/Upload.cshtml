@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Upload";
+}
+
+<h1>Upload</h1>
+<div>
+    @using (Html.BeginForm("Import", "Product", FormMethod.Post, new { enctype = "multiupart/form-data" })) {
+    @Html.Raw(ViewBag.Error)
+    <span>Excel File</span><input type="file" name="excelFile">
+    <br>
+    <input type="submit" value="Import">
+    }
+</div>
+
