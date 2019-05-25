@@ -49,9 +49,17 @@
 
     .navItems:hover {
         background-color: #54b551;
-        color: white;
+        color: black;
         text-decoration: none;
     }
+
+	.nav-link {
+		color: white;
+	}
+
+	.nav-link:hover {
+		color: black;
+	}
 
 
 
