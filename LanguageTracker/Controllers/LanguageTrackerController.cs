@@ -30,12 +30,25 @@ namespace LanguageTracker.Controllers
 
         //import CSV file from the Upload route
         [HttpPost]
-        public string Import(IFormFile excelFile)
+        public IActionResult Import(IFormFile excelFile)
         {
             Stream stream = excelFile.OpenReadStream();
             StreamReader reader = new StreamReader(stream);
-            string output = reader.ReadToEnd();
-            return output;
+            //display the file as an html table
+            string table = "";
+            while (!reader.EndOfStream)
+            {
+                table += "<tr>";
+                string line = reader.ReadLine();
+                string[] cols = line.Split(",");
+                foreach (string col in cols)
+                {
+                    table += $"<td>{col}</td>";
+                }
+                table += "</tr>";
+            }
+            ViewData["table"] = table;
+            return View();
         }
     }
 }
