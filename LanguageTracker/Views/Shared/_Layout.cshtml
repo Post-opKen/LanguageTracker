@@ -27,7 +27,7 @@
 </head>
 <body>
     <div id="pageContainer">
-		<!--header layout-->
+        <!--header layout-->
         <header id="templateHeader">
             <a href="http://www.greenriver.edu/">
                 <img src="//grcc.greenriver.edu/GRC-Template/logo.png" alt="Green River Logo">
@@ -35,16 +35,16 @@
             <h1>STUDENT SUCCESS IN FOREIGN LANGUAGES TRACKING TOOL</h1>
         </header>
 
-		<!--tabs to different tables-->
+        <!--tabs to different tables-->
         <ul class="container d-flex nav nav-tabs" id="navBar">
-            <li class="navItems rounded-lg">
-                <a class="nav-link" asp-controller="LanguageTracker" asp-action="Index">Lab Hours Table</a>
+            <li class="navItems">
+                <a class="nav-link @ViewData["tabIndex"]" asp-controller="LanguageTracker" asp-action="Index">Lab Hours Table</a>
             </li>
-            <li class="navItems rounded-lg">
-                <a class="nav-link" asp-controller="LanguageTracker" asp-action="Students">Individual Students Lab Activities</a>
+            <li class="navItems">
+                <a class="nav-link @ViewData["tabStudents"]" asp-controller="LanguageTracker" asp-action="Students">Individual Students Lab Activities</a>
             </li>
-            <li class="navItems rounded-lg">
-                <a class="nav-link" asp-controller="LanguageTracker" asp-action="Upload">Upload New Data</a>
+            <li class="navItems">
+                <a class="nav-link @ViewData["tabUpload"]" asp-controller="LanguageTracker" asp-action="Upload">Upload New Data</a>
             </li>
         </ul>
 
@@ -56,7 +56,7 @@
         </div>
     </div>
 
-	<!--footer layout-->
+    <!--footer layout-->
     <footer class="footer" id="templateFooter">
         <p class="rights">
             © 2019 GREEN RIVER COLLEGE, ALL RIGHTS RESERVED &nbsp; &nbsp; | <a href="https://www.greenriver.edu/privacy/">Privacy</a> | <a href="https://www.greenriver.edu/accessibility-disclaimer/">Accessibility &amp; Disclaimers</a> | <a href="https://www.greenriver.edu/consumer-information/">Consumer Information</a> | <a href="https://www.greenriver.edu/campus/human-resources/careers/">Careers</a>
@@ -83,12 +83,12 @@
         </script>
     </environment>
 
-	<!--js scripts-->
+    <!--js scripts-->
     <script src="//code.jquery.com/jquery-3.3.1.js"></script>
     <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="~/js/InitializeTable.js" asp-append-version="true"></script>
 
-	<!--render the scripts-->
+    <!--render the scripts-->
     @RenderSection("Scripts", required: false)
 
 </body>

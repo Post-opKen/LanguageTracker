@@ -13,18 +13,27 @@ namespace LanguageTracker.Controllers
         //default route
         public IActionResult Index()
         {
+            ViewData["tabIndex"] = "currentPage";
+            ViewData["tabStudents"] = "";
+            ViewData["tabUpload"] = "";
             return View();
         }
 
         //individual students route
         public IActionResult Students()
         {
+            ViewData["tabIndex"] = "";
+            ViewData["tabStudents"] = "currentPage";
+            ViewData["tabUpload"] = "";
             return View();
         }
 
         //excel upload route
         public IActionResult Upload()
         {
+            ViewData["tabIndex"] = "";
+            ViewData["tabStudents"] = "";
+            ViewData["tabUpload"] = "currentPage";
             return View();
         }
 

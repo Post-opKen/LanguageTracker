@@ -12,7 +12,7 @@
     margin: 0;
     vertical-align: baseline;
     text-align: left;
-    display: block;
+   
 }
 
     #templateHeader img {
@@ -37,15 +37,19 @@
         margin-left: 1em;
     }
 
+#navBar {
+    background-color: #CCCCCC;
+}
+
 .navItems {
     margin: 1em;
     background-color: #2c882b;
     text-decoration: none;
 }
 
-    .navItems>* {
-        color: black;
-    }
+	.nav-link {
+		color: white;
+	}
 
     .navItems:hover {
         background-color: #54b551;
@@ -53,16 +57,15 @@
         text-decoration: none;
     }
 
-	.nav-link {
-		color: white;
-	}
-
 	.nav-link:hover {
 		color: black;
 	}
 
-
-
+    /* Apply this class to current tab to highlight it */
+    .currentPage {
+        background-color: white;
+        color: black;
+    }
 
 table {
     padding: 3em 15em;
