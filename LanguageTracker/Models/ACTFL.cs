@@ -2,25 +2,16 @@
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace LanguageTracker.Models
 {
-    /*class MyContext : DbContext
-    {
-        public DbSet<ACTFL> ACTFLS { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<ACTFL>()
-                .HasKey(a => new { a.YearQuarterID, a.ItemNumber, a.SID });
-        }
-    }*/
-
     public class ACTFL
     {
+        [Key]
         [Display(Name = "Quarter")]
         [Column(TypeName = "nvarchar(10)")]
         public nvarchar YearQuarterID { get; set; }
@@ -28,10 +19,12 @@ namespace LanguageTracker.Models
         [Column(TypeName = "nvarchar(10)")]
         public nvarchar Language { get; set; }
 
+        [Key]
         [Display(Name = "Item")]
         [Column(TypeName = "nvarchar(4)")]
         public nvarchar ItemNumber { get; set; }
 
+        [Key]
         [Display(Name = "Student ID")]
         [Column(TypeName = "nvarchar(9)")]
         public nvarchar SID { get; set; }

@@ -16,13 +16,12 @@ namespace LanguageTracker.Models
         [Column(TypeName = "nvarchar(9)")]
         public String SID { get; set; }
         
-
         [Display(Name = "Class ID")]
-        [Column(TypeName = "varchar(4)")]
+        [Column(TypeName = "nvarchar(4)")]
         public String ClassID { get; set; }
 
         [Display(Name = "Quarter")]
-        [Column(TypeName = "varchar(4)")]
+        [Column(TypeName = "nvarchar(4)")]
         public String YearQuarterID { get; set; }
     }
 }

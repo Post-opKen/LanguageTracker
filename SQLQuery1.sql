@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Enrollment]
+(
+	[SID] NVARCHAR(9) NOT NULL,
+	[ClassID] NVARCHAR(4) NULL,
+	[YearQuarterID] NVARCHAR(4) NULL,
+	CONSTRAINT [PK_Enrollment] PRIMARY KEY CLUSTERED ([SID] ASC)
+
+);
