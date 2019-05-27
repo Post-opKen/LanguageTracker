@@ -11,7 +11,11 @@ namespace LanguageTracker.Models
 {
     public class ACTFL
     {
+
+        public int Id { get; set; }
+
         [Key]
+        [ForeignKey("YearQuarterID")]
         [Display(Name = "Quarter")]
         [Column(TypeName = "nvarchar(10)")]
         public nvarchar YearQuarterID { get; set; }
@@ -20,11 +24,13 @@ namespace LanguageTracker.Models
         public nvarchar Language { get; set; }
 
         [Key]
+        [ForeignKey("ItemNumber")]
         [Display(Name = "Item")]
         [Column(TypeName = "nvarchar(4)")]
         public nvarchar ItemNumber { get; set; }
 
         [Key]
+        [ForeignKey("SID")]
         [Display(Name = "Student ID")]
         [Column(TypeName = "nvarchar(9)")]
         public nvarchar SID { get; set; }
