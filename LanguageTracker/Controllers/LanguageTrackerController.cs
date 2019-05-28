@@ -10,8 +10,14 @@ namespace LanguageTracker.Controllers
 {
     public class LanguageTrackerController : Controller
     {
-        //default route
-        public IActionResult Index()
+		//default constructor
+		public LanguageTrackerController()
+		{
+			//empty for a purpose
+		}
+
+		//default route
+		public IActionResult Index()
         {
             ViewData["tabIndex"] = "currentPage";
             ViewData["tabStudents"] = "";
@@ -41,23 +47,38 @@ namespace LanguageTracker.Controllers
         [HttpPost]
         public IActionResult Import(IFormFile excelFile)
         {
-            Stream stream = excelFile.OpenReadStream();
-            StreamReader reader = new StreamReader(stream);
-            //display the file as an html table
-            string table = "";
-            while (!reader.EndOfStream)
-            {
-                table += "<tr>";
-                string line = reader.ReadLine();
-                string[] cols = line.Split(",");
-                foreach (string col in cols)
-                {
-                    table += $"<td>{col}</td>";
-                }
-                table += "</tr>";
-            }
-            ViewData["table"] = table;
-            return View();
+			Stream stream = excelFile.OpenReadStream();
+			ViewData["table"] = ReadFile(stream); 
+
+			return View();
         }
+
+		//method to read the file and convert it to a table
+		public static bool ReadFile(Stream stream)
+		{
+			if (stream != null)
+			{
+				StreamReader reader = new StreamReader(stream);
+				//display the file as an html table
+				string table = "";
+				while (!reader.EndOfStream)
+				{
+					table += "<tr>";
+					string line = reader.ReadLine();
+					string[] cols = line.Split(",");
+					foreach (string col in cols)
+					{
+						table += $"<td>{col}</td>";
+					}
+					table += "</tr>";
+				}
+				//ViewData["table"] = table;
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
     }
 }
