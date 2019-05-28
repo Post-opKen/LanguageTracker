@@ -10,14 +10,11 @@ namespace LanguageTracker.Controllers
 {
     public class LanguageTrackerController : Controller
     {
-		//default constructor
-		public LanguageTrackerController()
-		{
-			//empty for a purpose
-		}
+        //Columns for the file upload
+        const string ACTFL_COLS = "YearQuarterID,Language,ItemNumber,SID,SPEAKING,WRITING,LISTENING,READING";
 
-		//default route
-		public IActionResult Index()
+        //default route
+        public IActionResult Index()
         {
             ViewData["tabIndex"] = "currentPage";
             ViewData["tabStudents"] = "";
@@ -47,38 +44,36 @@ namespace LanguageTracker.Controllers
         [HttpPost]
         public IActionResult Import(IFormFile excelFile)
         {
-			Stream stream = excelFile.OpenReadStream();
-			ViewData["table"] = ReadFile(stream); 
+            //open file stream and reader
+            Stream stream = excelFile.OpenReadStream();
+            StreamReader reader = new StreamReader(stream);
+            string output = "";
 
-			return View();
+            //check for file type and column format
+            string columns = reader.ReadLine();
+            if (!excelFile.FileName.EndsWith(".csv") || columns != ACTFL_COLS)
+            {
+                output = "Must be  .csv file with the following columns: \n YearQuarterID, Language, ItemNumber, SID, SPEAKING, WRITING, LISTENING, READING";
+            }
+            else
+            {
+                //display the file as an html table
+                while (!reader.EndOfStream)
+                {
+                    output += "<tr>";
+                    string line = reader.ReadLine();
+                    string[] cols = line.Split(",");
+                    foreach (string col in cols)
+                    {
+                        output += $"<td>{col}</td>";
+                    }
+                    output += "</tr>";
+                }
+            }
+
+            //set a template variable and return
+            ViewData["table"] = output;
+            return View();
         }
-
-		//method to read the file and convert it to a table
-		public static bool ReadFile(Stream stream)
-		{
-			if (stream != null)
-			{
-				StreamReader reader = new StreamReader(stream);
-				//display the file as an html table
-				string table = "";
-				while (!reader.EndOfStream)
-				{
-					table += "<tr>";
-					string line = reader.ReadLine();
-					string[] cols = line.Split(",");
-					foreach (string col in cols)
-					{
-						table += $"<td>{col}</td>";
-					}
-					table += "</tr>";
-				}
-				//ViewData["table"] = table;
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
     }
 }
