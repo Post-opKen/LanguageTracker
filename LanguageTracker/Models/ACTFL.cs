@@ -12,7 +12,8 @@ namespace LanguageTracker.Models
     public class ACTFL
     {
 
-        public int Id { get; set; }
+        /*[Key]
+        public int Id { get; set; }*/
 
         [Key]
         [ForeignKey("YearQuarterID")]

@@ -11,7 +11,7 @@ namespace LanguageTracker.Models
     {
         //column names
         [Display(Name = "Quarter")]
-        [Column(TypeName = "nvarchar(10)")]
+        [Column(TypeName = "nvarchar(4)")]
         public string YearQuarterID { get; set; }
 
         [Key]
