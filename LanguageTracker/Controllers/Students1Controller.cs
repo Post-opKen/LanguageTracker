@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LanguageTracker.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace LanguageTracker.Controllers
 {
@@ -62,6 +64,43 @@ namespace LanguageTracker.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(student);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Import(IFormFile excelFile)
+        {
+            //open file stream and reader
+            Stream stream = excelFile.OpenReadStream();
+            StreamReader reader = new StreamReader(stream);
+            string output = "";
+
+            //check for file type and column format
+            string columns = reader.ReadLine();
+            if (!excelFile.FileName.EndsWith(".csv"))
+            {
+                output = "Must be  .csv file with the following columns: \n YearQuarterID, Language, ItemNumber, SID, SPEAKING, WRITING, LISTENING, READING";
+            }
+            else
+            {
+                //display the file as an html table
+                while (!reader.EndOfStream)
+                {
+                    string line = reader.ReadLine();
+                    string[] cols = line.Split(",");
+                    Student student = new Student();
+                    if (ModelState.IsValid)
+                    {
+                        student.SID = cols[0];
+                        student.FullName = cols[1];
+                        _context.Add(student);
+                        await _context.SaveChangesAsync();
+                    }
+                }
+            }
+
+            //set a template variable and return
+            ViewData["table"] = output;
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Students1/Edit/5
