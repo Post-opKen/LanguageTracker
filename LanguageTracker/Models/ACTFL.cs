@@ -18,13 +18,14 @@ namespace LanguageTracker.Models
         public string SID { get; set; }
 
         [Display(Name = "Proficiency Area")]
-        public string PROF_TYPE { get; set; }
+        public string Proficiency_Area { get; set; }
 
-        [Display(Name = "Proficiency Level")]
-        public string PROF_LVL { get; set; }
+        public string Reading { get; set; }
 
-        [Display(Name = "Proficiency Score")]
-        public string PROF_SCR { get; set; }
+        public string Writing { get; set; }
+
+        public string Speaking { get; set; }
+        public string Listening { get; set; }
 
         public virtual Enrollment S { get; set; }
     }

@@ -93,13 +93,17 @@ namespace LanguageTracker.Migrations
 
                     b.Property<string>("Language");
 
-                    b.Property<string>("PROF_LVL");
+                    b.Property<string>("Listening");
 
-                    b.Property<string>("PROF_SCR");
+                    b.Property<string>("Proficiency_Area");
 
-                    b.Property<string>("PROF_TYPE");
+                    b.Property<string>("Reading");
 
                     b.Property<string>("SID");
+
+                    b.Property<string>("Speaking");
+
+                    b.Property<string>("Writing");
 
                     b.Property<string>("YearQuarterID");
 
