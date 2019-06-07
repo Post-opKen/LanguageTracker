@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LanguageTracker.Migrations
 {
     [DbContext(typeof(LanguageTrackerContext))]
-    [Migration("20190607210317_ACTFL")]
+    [Migration("20190607212138_ACTFL")]
     partial class ACTFL
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -96,8 +96,6 @@ namespace LanguageTracker.Migrations
                     b.Property<string>("Language");
 
                     b.Property<string>("Listening");
-
-                    b.Property<string>("Proficiency_Area");
 
                     b.Property<string>("Reading");
 

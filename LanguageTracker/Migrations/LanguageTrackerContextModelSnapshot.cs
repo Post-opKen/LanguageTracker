@@ -95,8 +95,6 @@ namespace LanguageTracker.Migrations
 
                     b.Property<string>("Listening");
 
-                    b.Property<string>("Proficiency_Area");
-
                     b.Property<string>("Reading");
 
                     b.Property<string>("SID");

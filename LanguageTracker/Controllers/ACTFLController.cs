@@ -56,7 +56,7 @@ namespace LanguageTracker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,YearQuarterID,Language,ItemNumber,SID,Proficiency_Area,Reading,Writing,Speaking,Listening")] ACTFL aCTFL)
+        public async Task<IActionResult> Create([Bind("ID,YearQuarterID,Language,ItemNumber,SID,Reading,Writing,Speaking,Listening")] ACTFL aCTFL)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace LanguageTracker.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,YearQuarterID,Language,ItemNumber,SID,Proficiency_Area,Reading,Writing,Speaking,Listening")] ACTFL aCTFL)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,YearQuarterID,Language,ItemNumber,SID,Reading,Writing,Speaking,Listening")] ACTFL aCTFL)
         {
             if (id != aCTFL.ID)
             {
