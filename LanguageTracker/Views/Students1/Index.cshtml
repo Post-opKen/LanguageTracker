@@ -1,22 +1,28 @@
 ﻿@model IEnumerable<LanguageTracker.Models.Student>
 
 @{
-    ViewData["Title"] = "Index";
+	ViewData["Title"] = "Index";
 }
 
+<!-- p tags are used as padding-top to push content down just a little bit -->
+<p></p>
+<p></p>
+<label>
+	Manual Insert
+</label>
 <p>
-    <a asp-action="Create">Create New</a>
+	<a asp-action="Create">Insert Individual Student</a>
 </p>
 <form method="post" enctype="multipart/form-data" asp-controller="Students1" asp-action="Import">
-    <label>
-        CSV File
-        <input type="file" name="excelFile">
-    </label>
-    <br>
-    <input type="submit" value="Import">
+	<label>
+		CSV File
+		<input type="file" name="excelFile">
+	</label>
+	<br>
+	<input type="submit" value="Import">
 </form>
 <table class="table">
-    <thead>
+	<thead>
 		<tr>
 			<th>
 				@Html.DisplayNameFor(model => model.SID)
@@ -26,22 +32,23 @@
 			</th>
 			<th></th>
 		</tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.SID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.SID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.SID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.SID)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.FullName)
+				</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@item.SID">Edit</a> |
+					<a asp-action="Details" asp-route-id="@item.SID">Details</a> |
+					<a asp-action="Delete" asp-route-id="@item.SID">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
 </table>

@@ -8,17 +8,17 @@ using LanguageTracker.Models;
 
 namespace LanguageTracker.Models
 {
-    public class LanguageTrackerContext : DbContext
-    {
-        public LanguageTrackerContext (DbContextOptions<LanguageTrackerContext> options)
-            : base(options)
-        {
-        }
+	public class LanguageTrackerContext : DbContext
+	{
+		public LanguageTrackerContext(DbContextOptions<LanguageTrackerContext> options)
+			: base(options)
+		{
+		}
 
-        public DbSet<LanguageTracker.Models.Class> Class { get; set; }
+		public DbSet<LanguageTracker.Models.Class> Class { get; set; }
 
-        public DbSet<LanguageTracker.Models.Student> Student { get; set; }
+		public DbSet<LanguageTracker.Models.Student> Student { get; set; }
 
-        public DbSet<LanguageTracker.Models.Enrollment> Enrollment { get; set; }
-    }
+		public DbSet<LanguageTracker.Models.Enrollment> Enrollment { get; set; }
+	}
 }
