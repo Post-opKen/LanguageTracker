@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LanguageTracker.Migrations
 {
     [DbContext(typeof(LanguageTrackerContext))]
-    [Migration("20190522202237_Enrollment")]
+    [Migration("20190611054807_Enrollment")]
     partial class Enrollment
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -85,6 +85,35 @@ namespace LanguageTracker.Migrations
                     b.ToTable("Students");
                 });
 
+            modelBuilder.Entity("LanguageTracker.Models.ACTFL", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ItemNumber");
+
+                    b.Property<string>("Language");
+
+                    b.Property<string>("Listening");
+
+                    b.Property<string>("Reading");
+
+                    b.Property<string>("SID");
+
+                    b.Property<string>("Speaking");
+
+                    b.Property<string>("Writing");
+
+                    b.Property<string>("YearQuarterID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("SID");
+
+                    b.ToTable("ACTFL");
+                });
+
             modelBuilder.Entity("LanguageTracker.Models.Class", b =>
                 {
                     b.Property<string>("ClassID")
@@ -96,10 +125,11 @@ namespace LanguageTracker.Migrations
                     b.Property<string>("InstructorName")
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<int>("ItemNumber");
+                    b.Property<string>("ItemNumber")
+                        .HasColumnType("nvarchar(4)");
 
                     b.Property<string>("YearQuarterID")
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(4)");
 
                     b.HasKey("ClassID");
 
@@ -112,10 +142,10 @@ namespace LanguageTracker.Migrations
                         .HasColumnType("nvarchar(9)");
 
                     b.Property<string>("ClassID")
-                        .HasColumnType("varchar(4)");
+                        .HasColumnType("nvarchar(4)");
 
                     b.Property<string>("YearQuarterID")
-                        .HasColumnType("varchar(4)");
+                        .HasColumnType("nvarchar(4)");
 
                     b.HasKey("SID");
 
@@ -128,11 +158,18 @@ namespace LanguageTracker.Migrations
                         .HasColumnType("nvarchar(9)");
 
                     b.Property<string>("FullName")
-                        .HasColumnType("varchar(22)");
+                        .HasColumnType("nvarchar(22)");
 
                     b.HasKey("SID");
 
                     b.ToTable("Student");
+                });
+
+            modelBuilder.Entity("LanguageTracker.Models.ACTFL", b =>
+                {
+                    b.HasOne("LanguageTracker.Models.Enrollment", "S")
+                        .WithMany()
+                        .HasForeignKey("SID");
                 });
 #pragma warning restore 612, 618
         }
