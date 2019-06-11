@@ -17,6 +17,9 @@ namespace LanguageTracker.Models
         [Display(Name = "Student ID")]
         public string SID { get; set; }
 
+        [Display(Name = "Proficiency Area")]
+        public string Proficiency_Area { get; set; }
+
         public string Reading { get; set; }
 
         public string Writing { get; set; }
