@@ -93,12 +93,11 @@ namespace LanguageTracker.Controllers
                         student.SID = cols[0];
                         student.FullName = cols[1];
                         _context.Add(student);
-                        
+                        await _context.SaveChangesAsync();
                     }
                 }
-                await _context.SaveChangesAsync();
             }
-            
+
             //set a template variable and return
             ViewData["table"] = output;
             return RedirectToAction(nameof(Index));

@@ -4,14 +4,16 @@ using LanguageTracker.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LanguageTracker.Migrations
 {
     [DbContext(typeof(LanguageTrackerContext))]
-    partial class LanguageTrackerContextModelSnapshot : ModelSnapshot
+    [Migration("20190514173133_LabHours")]
+    partial class LabHours
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -81,56 +83,6 @@ namespace LanguageTracker.Migrations
                     b.HasKey("sid");
 
                     b.ToTable("Students");
-                });
-
-            modelBuilder.Entity("LanguageTracker.Models.Class", b =>
-                {
-                    b.Property<string>("ClassID")
-                        .HasColumnType("nvarchar(8)");
-
-                    b.Property<string>("CourseID")
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("InstructorName")
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<int>("ItemNumber");
-
-                    b.Property<string>("YearQuarterID")
-                        .HasColumnType("nvarchar(10)");
-
-                    b.HasKey("ClassID");
-
-                    b.ToTable("Class");
-                });
-
-            modelBuilder.Entity("LanguageTracker.Models.Enrollment", b =>
-                {
-                    b.Property<string>("SID")
-                        .HasColumnType("nvarchar(9)");
-
-                    b.Property<string>("ClassID")
-                        .HasColumnType("varchar(4)");
-
-                    b.Property<string>("YearQuarterID")
-                        .HasColumnType("varchar(4)");
-
-                    b.HasKey("SID");
-
-                    b.ToTable("Enrollment");
-                });
-
-            modelBuilder.Entity("LanguageTracker.Models.Student", b =>
-                {
-                    b.Property<string>("SID")
-                        .HasColumnType("nvarchar(9)");
-
-                    b.Property<string>("FullName")
-                        .HasColumnType("varchar(22)");
-
-                    b.HasKey("SID");
-
-                    b.ToTable("Student");
                 });
 #pragma warning restore 612, 618
         }

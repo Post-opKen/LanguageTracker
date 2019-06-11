@@ -4,14 +4,16 @@ using LanguageTracker.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LanguageTracker.Migrations
 {
     [DbContext(typeof(LanguageTrackerContext))]
-    partial class LanguageTrackerContextModelSnapshot : ModelSnapshot
+    [Migration("20190522194856_Student")]
+    partial class Student
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,22 +104,6 @@ namespace LanguageTracker.Migrations
                     b.HasKey("ClassID");
 
                     b.ToTable("Class");
-                });
-
-            modelBuilder.Entity("LanguageTracker.Models.Enrollment", b =>
-                {
-                    b.Property<string>("SID")
-                        .HasColumnType("nvarchar(9)");
-
-                    b.Property<string>("ClassID")
-                        .HasColumnType("varchar(4)");
-
-                    b.Property<string>("YearQuarterID")
-                        .HasColumnType("varchar(4)");
-
-                    b.HasKey("SID");
-
-                    b.ToTable("Enrollment");
                 });
 
             modelBuilder.Entity("LanguageTracker.Models.Student", b =>

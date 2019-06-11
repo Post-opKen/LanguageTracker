@@ -15,20 +15,10 @@ namespace LanguageTracker.Models
         {
         }
 
-        public DbSet<LanguageTracker.Controllers.Students> Students { get; set; }
-
-        public DbSet<LanguageTracker.Controllers.Instructors> Instructors { get; set; }
-
-        public DbSet<LanguageTracker.Controllers.LabActivities> LabActivities { get; set; }
-
-        public DbSet<LanguageTracker.Controllers.LabHours> LabHours { get; set; }
-
         public DbSet<LanguageTracker.Models.Class> Class { get; set; }
 
         public DbSet<LanguageTracker.Models.Student> Student { get; set; }
 
         public DbSet<LanguageTracker.Models.Enrollment> Enrollment { get; set; }
-
-        public DbSet<LanguageTracker.Models.ACTFL> ACTFL { get; set; }
     }
 }

@@ -23,7 +23,6 @@ namespace LanguageTracker
                 {
                     var context = services.GetRequiredService<LanguageTrackerContext>();
                     context.Database.Migrate();
-                    SeedDataClass.Initialize(services);
                 }
                 catch (Exception ex)
                 {
